@@ -1,9 +1,16 @@
+import { notFound } from "next/navigation";
+
 type Props = {
   params: {
     slug: string;
   };
 };
+//기본적으로 [slug]는 주소창에쓴게(라우팅) params로 전달(props)된다.
+//[...slug]라고 하면 파라미터가 있든없든 페이지 나오고, 배열도(중첩라우팅) 사용가능하다.
 export default function Slug({ params }: Props) {
+  if (params.slug === "") {
+    notFound();
+  }
   return <div>{params.slug} 설명페이지</div>;
 }
 
