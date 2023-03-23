@@ -1,26 +1,22 @@
 import Link from "next/link";
+import React from "react";
 
-export default function layout({ children }: { children: React.ReactNode }) {
+const products = ["pants", "skirts", "shoes", "shirt"];
+export default function ProductPage({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <div className="flex justify-center gap-4">
-      <div>
-        <ul>
-          <li>
-            <Link href="/products/pants">Pants</Link>
+    <div className="flex justify-center">
+      <ul>
+        {products.map((product, index) => (
+          <li key={index}>
+            <Link href={`/products/${product}`}>{product}</Link>
           </li>
-          <li>
-            <Link href="/products/hello">Hello</Link>
-          </li>
-          <li>
-            <Link href="/products/man">Man</Link>
-          </li>
-          <li>
-            <Link href="/products/girl">Girl</Link>
-          </li>
-        </ul>
-      </div>
-
-      <div className="text-green">{children}</div>
+        ))}
+      </ul>
+      {children}
     </div>
   );
 }
