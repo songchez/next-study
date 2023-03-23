@@ -2,11 +2,12 @@ import Link from "next/link";
 import React from "react";
 
 export const metadata = {
-  title: "product",
+  title: "Product",
   description: "산체스의 넥스트 스터디의 상품페이지입니다",
 };
 
 const products = ["pants", "skirts", "shoes", "shirt"];
+
 export default function ProductPage({
   children,
 }: {
