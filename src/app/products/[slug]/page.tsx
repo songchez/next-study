@@ -1,6 +1,7 @@
 import { getProduct, getProducts } from "@/app/api/products";
 import Image from "next/image";
-import { notFound } from "next/navigation";
+import Link from "next/link";
+import { notFound, redirect } from "next/navigation";
 
 type Props = {
   params: {
@@ -12,7 +13,8 @@ type Props = {
 export default async function Slug({ params: { slug } }: Props) {
   const product = await getProduct(slug);
   if (!product) {
-    notFound();
+    redirect("products/0001");
+    // notFound();
   }
   return (
     <div>
@@ -24,6 +26,9 @@ export default async function Slug({ params: { slug } }: Props) {
         style={{ objectFit: "cover" }}
       />
       {product.name} 설명페이지
+      <Link href="/" className="text-orange border m-10">
+        홈가기
+      </Link>
     </div>
   );
 }
