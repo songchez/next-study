@@ -1,4 +1,5 @@
 import { getProduct, getProducts } from "@/app/api/products";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 
 type Props = {
@@ -13,7 +14,18 @@ export default async function Slug({ params: { slug } }: Props) {
   if (!product) {
     notFound();
   }
-  return <div>{product.name} 설명페이지</div>;
+  return (
+    <div>
+      <Image
+        src={product.url}
+        alt={`imageof${product.name}`}
+        width={400}
+        height={400}
+        style={{ objectFit: "cover" }}
+      />
+      {product.name} 설명페이지
+    </div>
+  );
 }
 
 //원래 요청시 생성(Dynamic)되어야 하는데 미리 정적(Static)으로 생성해 놓는 함수

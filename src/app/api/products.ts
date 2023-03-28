@@ -5,6 +5,7 @@ export interface Product {
   id: string;
   name: string;
   price: string;
+  url: string;
 }
 
 export async function getProducts(): Promise<Product[]> {

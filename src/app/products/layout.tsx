@@ -31,8 +31,10 @@ export default async function ProductPage({
 
         {children}
         {/* 서버가 빌드될떄 딱 한번 실행된다. */}
+        <div className="w-36 p-5">
+          <Meow></Meow>
+        </div>
       </div>
-      <Meow></Meow>
     </>
   );
 }
