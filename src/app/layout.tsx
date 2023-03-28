@@ -1,6 +1,5 @@
 import Link from "next/link";
 import "./globals.css";
-import styles from "./layout.module.css";
 
 //head.js가 없어지고 오지는 SEO를 위한 metadata가 생겼다!!!!
 //쉽게 동적메타데이타도 만들어 볼 수 있다!
@@ -20,12 +19,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <header className={styles.header}>
+        <header className="text-lg flex justify-center">
           <div>
             <h1>Sanchez&apos;s Next Study</h1>
             <nav>
               <Link href="/">Home</Link>
-              <Link href="/products/pants">Product</Link>
+              <Link href="/products/0001">Product</Link>
               <Link href="/about">About</Link>
             </nav>
           </div>

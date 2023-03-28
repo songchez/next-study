@@ -19,17 +19,20 @@ export default async function ProductPage({
   const products = await getProducts();
 
   return (
-    <div className="flex justify-center">
-      <ul>
-        {products.map((product, index) => (
-          <li key={index}>
-            <Link href={`/products/${product.id}`}>{product.name}</Link>
-          </li>
-        ))}
-      </ul>
-      {children}
-      {/* 서버가 빌드될떄 딱 한번 실행된다. */}
+    <>
+      <div className="flex justify-center m-5 text-blue">
+        <ul>
+          {products.map((product, index) => (
+            <li key={index}>
+              <Link href={`/products/${product.id}`}>{product.name}</Link>
+            </li>
+          ))}
+        </ul>
+
+        {children}
+        {/* 서버가 빌드될떄 딱 한번 실행된다. */}
+      </div>
       <Meow></Meow>
-    </div>
+    </>
   );
 }

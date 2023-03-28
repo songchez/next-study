@@ -3,9 +3,11 @@ import styles from "./page.module.css";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <h1>HOME</h1>
-      <Counter></Counter>
+    <main>
+      <div className="text-center mt-10">
+        <h1>HOME</h1>
+        <Counter></Counter>
+      </div>
     </main>
   );
 }

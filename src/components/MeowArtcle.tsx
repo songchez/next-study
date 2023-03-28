@@ -15,5 +15,5 @@ export default function Meow() {
       .then((data) => setText(data.data[0]));
   }, []);
 
-  return <article className="text-3xl text-orange">{text}</article>;
+  return <article className="text-xl text-orange">{text}</article>;
 }
