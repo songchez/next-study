@@ -6,6 +6,6 @@ export default function ImageBuilder({ mainImage }: any) {
   function urlFor(source: any) {
     return builder.image(source);
   }
-  console.log(mainImage, "비었니");
+
   return urlFor(mainImage).url();
 }

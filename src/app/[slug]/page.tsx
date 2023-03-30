@@ -2,6 +2,7 @@ import Image from "next/image";
 import { redirect } from "next/navigation";
 import { getPost, getPostData } from "../api/blogData";
 import ImageBuilder from "@/components/ImageBuilder";
+import ArticleBuilder from "@/components/ArticleBuilder";
 
 type Props = {
   params: {
@@ -19,7 +20,7 @@ export default async function Slug({ params: { slug } }: Props) {
   }
   return (
     <div key={post._id}>
-      <h1>{post.title}</h1>
+      <h1 className="text-3xl">{post.title}</h1>
       <Image
         src={ImageBuilder({ mainImage: post.mainImage })}
         alt={`Main image of${post.title}`}
@@ -27,7 +28,10 @@ export default async function Slug({ params: { slug } }: Props) {
         height={400}
         style={{ objectFit: "cover" }}
       />
-      <div></div>
+      <div>
+        {/* 클라이언트 컴포넌트 */}
+        <ArticleBuilder postBody={post.body}></ArticleBuilder>
+      </div>
     </div>
   );
 }
