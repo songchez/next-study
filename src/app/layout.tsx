@@ -11,10 +11,10 @@ const open_Sans = Open_Sans({
 //쉽게 동적메타데이타도 만들어 볼 수 있다!
 export const metadata = {
   title: {
-    default: "산체스의 넥스트 스터디",
-    template: "산체스의 넥스트 스터디 | %s",
+    default: "Sanchez's Nelog",
+    template: "Sanchez's Nelog | %s",
   },
-  description: "산체스의 넥스트 스터디를 담은 홈페이지",
+  description: "산체스의 넥스트 스터디를 담은 갠댄한 블로그",
 };
 
 export default function RootLayout({
@@ -25,10 +25,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={open_Sans.className}>
       <body>
-        <header className="text-lg flex justify-center">
-          <div>
-            <h1 className="text-xl text-green">Sanchez&apos;s Next Study</h1>
-            <nav>
+        <header>
+          <div className="flex justify-between p-5">
+            <Link href="/">
+              <h1 className="text-xl text-emerald-500">Sanchez&apos;s Nelog</h1>
+            </Link>
+            <nav className="grid grid-flow-col gap-2 pt-2">
               <Link href="/">Home</Link>
               <Link href="/products/0001">Product</Link>
               <Link href="/articles/0001">Articles</Link>
