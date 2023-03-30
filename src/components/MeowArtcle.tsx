@@ -17,7 +17,7 @@ export default function Meow() {
 
   return (
     <div className="w-auto p-5">
-      <article className="text-xl text-orange">{text}</article>
+      <article className="text-lg text-orange">{text}</article>
     </div>
   );
 }
