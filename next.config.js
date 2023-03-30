@@ -4,7 +4,13 @@ const nextConfig = {
     appDir: true,
   },
   images: {
-    remotePatterns: [{ protocol: "https", hostname: "source.unsplash.com" }],
+    remotePatterns: [
+      { protocol: "https", hostname: "source.unsplash.com" },
+      {
+        protocol: "https",
+        hostname: "cdn.sanity.io",
+      },
+    ],
   },
 };
 
