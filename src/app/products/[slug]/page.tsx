@@ -1,7 +1,7 @@
 import { getProduct, getProducts } from "@/app/api/products";
 import Image from "next/image";
 import Link from "next/link";
-import { notFound, redirect } from "next/navigation";
+import { redirect } from "next/navigation";
 
 type Props = {
   params: {

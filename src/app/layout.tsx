@@ -33,7 +33,6 @@ export default function RootLayout({
             <nav className="grid grid-flow-col gap-2 pt-2">
               <Link href="/">Home</Link>
               <Link href="/products/0001">Product</Link>
-              <Link href="/articles/0001">Articles</Link>
               <Link href="/about">About</Link>
             </nav>
           </div>

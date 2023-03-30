@@ -1,7 +1,7 @@
-import { getProduct, getProducts } from "@/app/api/products";
 import Image from "next/image";
-import Link from "next/link";
-import { notFound, redirect } from "next/navigation";
+import { redirect } from "next/navigation";
+import { getPost, getPostData } from "../api/blogData";
+import ImageBuilder from "@/components/ImageBuilder";
 
 type Props = {
   params: {
@@ -10,25 +10,24 @@ type Props = {
 };
 //기본적으로 [slug]는 주소창에쓴게(라우팅) params로 전달(props)된다.
 //[...slug]라고 하면 파라미터가 있든없든 페이지 나오고, 배열도(중첩라우팅) 사용가능하다.
+
 export default async function Slug({ params: { slug } }: Props) {
-  const product = await getProduct(slug);
-  if (!product) {
-    redirect("products/0001");
+  const post = await getPost(slug);
+  if (!post) {
+    redirect("/");
     // notFound();
   }
   return (
-    <div>
+    <div key={post._id}>
+      <h1>{post.title}</h1>
       <Image
-        src={product.url}
-        alt={`imageof${product.name}`}
+        src={ImageBuilder({ mainImage: post.mainImage })}
+        alt={`Main image of${post.title}`}
         width={400}
         height={400}
         style={{ objectFit: "cover" }}
       />
-      {product.name} 설명페이지
-      <Link href="/" className="text-orange border m-10">
-        홈가기
-      </Link>
+      <div></div>
     </div>
   );
 }
@@ -37,6 +36,6 @@ export default async function Slug({ params: { slug } }: Props) {
 //상세페이지 만들때 쓰임.
 //동적(ssr)으로 하느냐? 아니면 정적(ssg)으로 하느냐?
 export async function generateStaticParams() {
-  const products = await getProducts();
-  return products.map((product) => ({ slug: product.id }));
+  const posts = await getPostData();
+  return posts.map((post: any) => ({ slug: post.id }));
 }
