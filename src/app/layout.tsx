@@ -23,21 +23,62 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={open_Sans.className}>
+    <html lang="ko" className={open_Sans.className}>
       <body>
-        <header>
-          <div className="flex justify-between p-5">
-            <Link href="/">
-              <h1 className="text-xl text-emerald-500">Sanchez&apos;s Nelog</h1>
-            </Link>
-            <nav className="grid grid-flow-col gap-2 pt-2">
-              <Link href="/">Home</Link>
-              <Link href="/products/0001">Product</Link>
-              <Link href="/about">About</Link>
-            </nav>
-          </div>
-        </header>
-        {children}
+        <div className="p-1 sm:p-5">
+          <header>
+            <div className="flex justify-between p-5">
+              <Link href="/">
+                <h1 className="text-xl text-primary">
+                  {metadata.title.default}
+                </h1>
+              </Link>
+              {/* PC */}
+              <nav className="hidden sm:grid grid-flow-col gap-4 pt-2">
+                <Link href="/">Article</Link>
+                <Link href="/products/0001">Product</Link>
+                <Link href="/about">About</Link>
+              </nav>
+              {/* 모바일 */}
+              <div className="dropdown sm:hidden">
+                <label
+                  tabIndex={0}
+                  className="btn m-1 bg-base text-primary hover:bg-primary/60 "
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    className="w-6 h-6"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                    />
+                  </svg>
+                </label>
+                <ul
+                  tabIndex={0}
+                  className="dropdown-content menu p-2 shadow bg-base rounded-box w-52"
+                >
+                  <li>
+                    <Link href="/">Article</Link>
+                  </li>
+                  <li>
+                    <Link href="/about">About</Link>
+                  </li>
+                  <li>
+                    <Link href="/products/0001">Product</Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </header>
+          {children}
+        </div>
       </body>
     </html>
   );

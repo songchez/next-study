@@ -19,8 +19,8 @@ export default async function Slug({ params: { slug } }: Props) {
     // notFound();
   }
   return (
-    <div key={post._id}>
-      <h1 className="text-3xl">{post.title}</h1>
+    <div key={post._id} className="p-10">
+      <h1 className="pt-36 text-4xl font-bold text-center">{post.title}</h1>
       <Image
         src={ImageBuilder({ mainImage: post.mainImage })}
         alt={`Main image of${post.title}`}

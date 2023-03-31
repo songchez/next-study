@@ -2,6 +2,7 @@ import Link from "next/link";
 import React from "react";
 import { getProducts } from "../api/products";
 import Meow from "@/components/MeowArtcle";
+import Counter from "@/components/Counter";
 
 export const metadata = {
   title: "Product",
@@ -33,6 +34,7 @@ export default async function ProductPage({
         <div className="p-8">
           <h3 className="text-orange-700">The Facts of Cats</h3>
           <Meow></Meow>
+          <Counter></Counter>
         </div>
       </div>
     </>
