@@ -2,6 +2,7 @@ import Link from "next/link";
 import React from "react";
 import { getProducts } from "../api/products";
 import Meow from "@/components/MeowArtcle";
+import Counter from "@/components/Counter";
 
 export const metadata = {
   title: "Product",
@@ -20,7 +21,7 @@ export default async function ProductPage({
 
   return (
     <>
-      <div className="flex justify-center m-5 text-blue">
+      <div className="flex justify-center m-5 text-blue gap-4">
         <ul>
           {products.map((product, index) => (
             <li key={index}>
@@ -30,9 +31,11 @@ export default async function ProductPage({
         </ul>
 
         {children}
-        {/* 서버가 빌드될떄 딱 한번 실행된다. */}
-
-        <Meow></Meow>
+        <div className="p-8">
+          <h3 className="text-orange-700">The Facts of Cats</h3>
+          <Meow></Meow>
+          <Counter></Counter>
+        </div>
       </div>
     </>
   );

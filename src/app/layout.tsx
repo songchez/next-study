@@ -11,10 +11,10 @@ const open_Sans = Open_Sans({
 //쉽게 동적메타데이타도 만들어 볼 수 있다!
 export const metadata = {
   title: {
-    default: "산체스의 넥스트 스터디",
-    template: "산체스의 넥스트 스터디 | %s",
+    default: "Sanchez's Nelog",
+    template: "Sanchez's Nelog | %s",
   },
-  description: "산체스의 넥스트 스터디를 담은 홈페이지",
+  description: "산체스의 넥스트 스터디를 담은 갠댄한 블로그",
 };
 
 export default function RootLayout({
@@ -23,20 +23,62 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={open_Sans.className}>
+    <html lang="ko" className={open_Sans.className}>
       <body>
-        <header className="text-lg flex justify-center">
-          <div>
-            <h1 className="text-xl text-green">Sanchez&apos;s Next Study</h1>
-            <nav>
-              <Link href="/">Home</Link>
-              <Link href="/products/0001">Product</Link>
-              <Link href="/articles/0001">Articles</Link>
-              <Link href="/about">About</Link>
-            </nav>
-          </div>
-        </header>
-        {children}
+        <div className="p-1 sm:p-5">
+          <header>
+            <div className="flex justify-between p-5 md:px-16">
+              <Link href="/">
+                <h1 className="text-xl text-primary">
+                  {metadata.title.default}
+                </h1>
+              </Link>
+              {/* PC */}
+              <nav className="hidden sm:grid grid-flow-col gap-4">
+                <Link href="/">Articles</Link>
+                <Link href="/products/0001">Product</Link>
+                <Link href="/about">About</Link>
+              </nav>
+              {/* 모바일 */}
+              <div className="dropdown sm:hidden">
+                <label
+                  tabIndex={0}
+                  className="btn m-1 bg-base text-primary hover:bg-primary/60 "
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth="1.5"
+                    stroke="currentColor"
+                    className="w-6 h-6"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                    />
+                  </svg>
+                </label>
+                <ul
+                  tabIndex={0}
+                  className="dropdown-content menu p-2 shadow bg-base rounded-box w-52"
+                >
+                  <li>
+                    <Link href="/">Articles</Link>
+                  </li>
+                  <li>
+                    <Link href="/about">About</Link>
+                  </li>
+                  <li>
+                    <Link href="/products/0001">Product</Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </header>
+          {children}
+        </div>
       </body>
     </html>
   );
