@@ -14,23 +14,39 @@ type Props = {
 
 export default async function Slug({ params: { slug } }: Props) {
   const post = await getPost(slug);
+  const tagLists = ["개발실력", "공부법", "컴퓨터적으로사고", "컴퓨팅사고"];
   if (!post) {
     redirect("/");
     // notFound();
   }
   return (
-    <div key={post._id} className="p-10">
-      <h1 className="pt-36 text-4xl font-bold text-center">{post.title}</h1>
-      <Image
-        src={ImageBuilder({ mainImage: post.mainImage })}
-        alt={`Main image of${post.title}`}
-        width={400}
-        height={400}
-        style={{ objectFit: "cover" }}
-      />
-      <div>
-        {/* 클라이언트 컴포넌트 */}
-        <ArticleBuilder postBody={post.body}></ArticleBuilder>
+    <div className="flex justify-center">
+      <div key={post._id} className="container px-10 w-full max-w-4xl">
+        <div className="grid gap-4">
+          <h1 className="pt-28 text-5xl font-bold">{post.title}</h1>
+          <h4>산체스 • 5일전</h4>
+          <div className="flex gap-2">
+            {tagLists.map((tagList) => {
+              return (
+                <button className="badge hover:bg-primary" key={tagList}>
+                  {tagList}
+                </button>
+              );
+            })}
+          </div>
+          <Image
+            src={ImageBuilder({ mainImage: post.mainImage })}
+            alt={`Main image of${post.title}`}
+            width={500}
+            height={400}
+            className="w-full max-h-fit bg-cover"
+          />
+        </div>
+
+        <div>
+          {/* 클라이언트 컴포넌트 */}
+          <ArticleBuilder postBody={post.body}></ArticleBuilder>
+        </div>
       </div>
     </div>
   );

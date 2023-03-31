@@ -27,15 +27,15 @@ export default function RootLayout({
       <body>
         <div className="p-1 sm:p-5">
           <header>
-            <div className="flex justify-between p-5">
+            <div className="flex justify-between p-5 md:px-16">
               <Link href="/">
                 <h1 className="text-xl text-primary">
                   {metadata.title.default}
                 </h1>
               </Link>
               {/* PC */}
-              <nav className="hidden sm:grid grid-flow-col gap-4 pt-2">
-                <Link href="/">Article</Link>
+              <nav className="hidden sm:grid grid-flow-col gap-4">
+                <Link href="/">Articles</Link>
                 <Link href="/products/0001">Product</Link>
                 <Link href="/about">About</Link>
               </nav>
@@ -65,7 +65,7 @@ export default function RootLayout({
                   className="dropdown-content menu p-2 shadow bg-base rounded-box w-52"
                 >
                   <li>
-                    <Link href="/">Article</Link>
+                    <Link href="/">Articles</Link>
                   </li>
                   <li>
                     <Link href="/about">About</Link>
