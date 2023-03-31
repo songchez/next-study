@@ -42,11 +42,8 @@ export default async function Slug({ params: { slug } }: Props) {
             className="w-full max-h-fit bg-cover"
           />
         </div>
-
-        <div>
-          {/* 클라이언트 컴포넌트 */}
-          <ArticleBuilder postBody={post.body}></ArticleBuilder>
-        </div>
+        {/* 클라이언트 컴포넌트 */}
+        <ArticleBuilder postBody={post.body}></ArticleBuilder>
       </div>
     </div>
   );

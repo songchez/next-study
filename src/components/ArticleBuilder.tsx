@@ -26,8 +26,8 @@ export default function ArticleBuilder({ postBody }: { postBody: [] }) {
           .url()}
         alt={value.alt || " "}
         loading="lazy"
-        width={300}
-        height={300}
+        width={400}
+        height={400}
         style={{
           // Display alongside text if image appears inside a block text span
           display: isInline ? "inline-block" : "block",
@@ -53,15 +53,10 @@ export default function ArticleBuilder({ postBody }: { postBody: [] }) {
       blockquote: ({ children }) => (
         <blockquote className="border-l-green-900">{children}</blockquote>
       ),
-
-      // Ex. 2: rendering custom styles
-      customHeading: ({ children }) => (
-        <h2 className="text-lg text-primary text-purple-700">{children}</h2>
-      ),
     },
   };
   return (
-    <article className="prose">
+    <article className="prose break-words">
       <PortableText value={postBody} components={components}></PortableText>
     </article>
   );
