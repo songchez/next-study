@@ -22,7 +22,6 @@ interface Post {
 
 export default async function Slug({ params: { slug } }: Props) {
   const post: Post = await getPost(slug);
-  console.log();
   const tagLists = ["개발실력", "공부법", "컴퓨터적으로사고", "컴퓨팅사고"];
   if (!post) {
     redirect("/");
