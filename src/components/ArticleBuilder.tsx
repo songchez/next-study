@@ -7,7 +7,7 @@ import urlBuilder from "@sanity/image-url";
 import { getImageDimensions } from "@sanity/asset-utils";
 import { client } from "@/util/SanityClient";
 
-export default function ArticleBuilder({ postBody }: { postBody: [] }) {
+export default function ArticleBuilder({ postBody }: { postBody: object[] }) {
   const SampleImageComponent = ({
     value,
     isInline,
