@@ -13,6 +13,7 @@ export default async function ArticleCard({ post }: { post: Post }) {
   const author = await getAuthorData({
     author_id: post.author._ref,
   });
+
   const builder = imageUrlBuilder(client);
 
   function urlFor(source: any) {
