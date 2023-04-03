@@ -4,7 +4,7 @@
 
 ## Authors
 
-- [@songchez](https://github.com/songchez)
+- [@songchez](https://github.com/songchez)
 
 ## Installation
 
