@@ -17,19 +17,18 @@ export default async function Slug({ params: { slug } }: Props) {
     // notFound();
   }
   return (
-    <div>
-      <div className="h-64 w-64 bg-cover">
-        <Image
-          src={product.url}
-          alt={`imageof${product.name}`}
-          width={400}
-          height={400}
-        />
+    <div className="p-10">
+      <h1 className="tex-bold text-xl text-center">{product.name}</h1>
+      <div className="flex justify-center">
+        <div className="h-64 w-64 bg-cover">
+          <Image
+            src={product.url}
+            alt={`imageof${product.name}`}
+            width={400}
+            height={400}
+          />
+        </div>
       </div>
-      {product.name} 설명페이지
-      <Link href="/" className="text-orange border m-10">
-        홈가기
-      </Link>
     </div>
   );
 }

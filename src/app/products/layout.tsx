@@ -23,21 +23,16 @@ export default async function ProductPage({
       <div className="p-8 ">
         <Meow></Meow>
       </div>
-      <div className="flex justify-center m-5 text-blue gap-4">
-        <ul className="">
-          {products.map((product, index) => (
-            <li key={index}>
-              <Link href={`/products/${product.id}`}>
-                <div className="text-xl font-bold border-spacing-1">
-                  {product.name}
-                </div>
-              </Link>
-            </li>
-          ))}
-        </ul>
-
-        {children}
+      <div className="tabs justify-center">
+        {products.map((product, index) => (
+          <Link href={`/products/${product.id}`} key={index}>
+            <div className="text-xl font-bold tab tab-lg tab-lifted">
+              {product.name}
+            </div>
+          </Link>
+        ))}
       </div>
+      {children}
     </>
   );
 }
