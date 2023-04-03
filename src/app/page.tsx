@@ -3,6 +3,7 @@ import { getPostData } from "./api/blogData";
 
 export default async function Home() {
   const posts = await getPostData();
+
   return (
     <main>
       <div className="flex justify-center text-center mt-5">

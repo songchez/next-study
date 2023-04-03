@@ -12,6 +12,7 @@ type Props = {
 //[...slug]라고 하면 파라미터가 있든없든 페이지 나오고, 배열도(중첩라우팅) 사용가능하다.
 export default async function Slug({ params: { slug } }: Props) {
   const product = await getProduct(slug);
+
   if (!product) {
     redirect("products/0001");
     // notFound();
