@@ -19,20 +19,22 @@ export default async function ProductPage({
   const products = await getProducts();
 
   return (
-    <>
-      <div className="p-8 ">
-        <Meow></Meow>
+    <div className="flex justify-center">
+      <div className="container max-w-4xl">
+        <div className="p-8">
+          <Meow></Meow>
+        </div>
+        <div className="tabs justify-center">
+          {products.map((product, index) => (
+            <Link href={`/products/${product.id}`} key={index}>
+              <div className="text-xl font-bold tab tab-lg tab-lifted">
+                {product.name}
+              </div>
+            </Link>
+          ))}
+        </div>
+        {children}
       </div>
-      <div className="tabs justify-center">
-        {products.map((product, index) => (
-          <Link href={`/products/${product.id}`} key={index}>
-            <div className="text-xl font-bold tab tab-lg tab-lifted">
-              {product.name}
-            </div>
-          </Link>
-        ))}
-      </div>
-      {children}
-    </>
+    </div>
   );
 }

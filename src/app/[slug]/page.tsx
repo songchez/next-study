@@ -1,27 +1,23 @@
 import Image from "next/image";
 import { redirect } from "next/navigation";
-import { getPost, getPostData } from "../api/blogData";
+import { getAuthorData, getPost, getPostData } from "../api/blogData";
 import ImageBuilder from "@/components/ImageBuilder";
 import ArticleBuilder from "@/components/ArticleBuilder";
 import CreatedAt from "@/components/CreatedAt";
+import { Post } from "@/types/AboutPost";
 
 type Props = {
   params: {
     slug: string;
   };
 };
-interface Post {
-  title: string;
-  _id: string;
-  _createdAt: any;
-  mainImage: string;
-  body: [];
-}
+
 //기본적으로 [slug]는 주소창에쓴게(라우팅) params로 전달(props)된다.
 //[...slug]라고 하면 파라미터가 있든없든 페이지 나오고, 배열도(중첩라우팅) 사용가능하다.
 
 export default async function Slug({ params: { slug } }: Props) {
   const post: Post = await getPost(slug);
+  const author = await getAuthorData({ author_id: post.author._ref });
   const tagLists = ["개발실력", "공부법", "컴퓨터적으로사고", "컴퓨팅사고"];
   if (!post) {
     redirect("/");
@@ -32,7 +28,9 @@ export default async function Slug({ params: { slug } }: Props) {
       <div key={post._id} className="container px-10 w-full max-w-4xl">
         <div className="grid gap-4">
           <h1 className="pt-28 text-5xl font-bold">{post.title}</h1>
-          <h4>산체스 • {CreatedAt({ createdAt: post._createdAt })}</h4>
+          <h4>
+            {author.name} • {CreatedAt({ createdAt: post._createdAt })}
+          </h4>
 
           <div className="flex gap-2">
             {tagLists.map((tagList) => {
