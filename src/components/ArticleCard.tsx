@@ -9,8 +9,13 @@ import { Post } from "@/types/AboutPost";
 import { getAuthorData } from "@/app/api/blogData";
 import ImageBuilder from "./ImageBuilder";
 
-export default async function ArticleCard({ post }: { post: Post }) {
-  const author = await getAuthorData({ author_id: post.author._ref });
+export default function ArticleCard({
+  post,
+  author,
+}: {
+  post: Post;
+  author: any;
+}) {
   const builder = imageUrlBuilder(client);
 
   function urlFor(source: any) {

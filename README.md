@@ -36,7 +36,7 @@ Install my-project with npm
 
 백수요
 
-## 오류 ERROR
+## 오류 1. ERROR
 
 ```typescript error
 'ArticleCard'은(는) JSX 구성 요소로 사용할 수 없습니다.
@@ -50,3 +50,21 @@ import ArticleCard
 
 typescript에서 promise 요소는 jsx로 들어갈수가 없다..?!?!?!?!??.posts 데이터를
 먼저 가져오고 각 post데이터의 author객체를 가지고 쿼리짜서 author 불러와야되는데, 컴포넌트로 분리하면 이렇게 Promise<Jsx.Element> 타입오류가 생긴다. 어떻게 해결해야 할까?(npm run dev로 실행되긴함.)
+
+## 해결 1. 공식문서실패, 알잘딱
+
+<https://beta.nextjs.org/docs/data-fetching/fetching#server-component-functions>
+
+공식문서를 확인해보니 서버컴포넌트에서 발생하는 promise오류를 무시하는 코드를 알려주었다. 근데 여기저기 다 넣어봐도
+다 오류가 떳다 ㅠㅠ 그래서 걍 내방식대로 해결했다.
+
+```typescript
+{
+  posts.map(async (post: any) => {
+    const author = await getAuthorData({ author_id: post.author._ref });
+    return <ArticleCard post={post} author={author} key={post._id} />;
+  });
+}
+```
+
+별건 아니고 그냥 메인 페이지 맵핑하는 곳에서 직접 fetch함수를 비동기로 불러왔다. 그랬더니 문제해결스.
