@@ -39,18 +39,24 @@ export default async function ArticleCard({ post }: { post: Post }) {
               개의 댓글
             </span>
             <div className="py-px bg-base"></div>
-
             <div className="flex justify-between">
-              <div>
-                <Image
-                  src={ImageBuilder({ mainImage: author.image })}
-                  alt="authorImage"
-                  width={50}
-                  height={50}
-                ></Image>
+              <div className="flex text-sm">
+                <div className="avatar w-8 h-8">
+                  <Image
+                    src={ImageBuilder({ mainImage: author.image })}
+                    alt="authorImage"
+                    width={30}
+                    height={30}
+                    className="rounded-full object-fill"
+                  ></Image>
+                </div>
+                <span className="p-2">
+                  by <span className="text-secondary">{author.name}</span>
+                </span>
               </div>
-              <span>{author.name}</span>
-              <Image src={HeartIcon} alt="hearticon"></Image>
+              <button>
+                <Image src={HeartIcon} alt="hearticon"></Image>
+              </button>
             </div>
           </div>
         </div>

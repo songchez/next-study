@@ -28,15 +28,15 @@ Install my-project with npm
 
 ## FAQ
 
-#### Question 1. 누구세요?
+### Question 1. 누구세요?
 
 산체스요
 
-#### Question 2. 뭐하는 사람이죠?
+### Question 2. 뭐하는 사람이죠?
 
 백수요
 
-## 오류
+## 오류 ERROR
 
 ```typescript error
 'ArticleCard'은(는) JSX 구성 요소로 사용할 수 없습니다.
@@ -48,5 +48,5 @@ post: Post;
 import ArticleCard
 ```
 
-typescript에서 promise 요소는 jsx로 들어갈수가 없다...posts 데이터를
+typescript에서 promise 요소는 jsx로 들어갈수가 없다..?!?!?!?!??.posts 데이터를
 먼저 가져오고 각 post데이터의 author객체를 가지고 쿼리짜서 author 불러와야되는데, 컴포넌트로 분리하면 이렇게 Promise<Jsx.Element> 타입오류가 생긴다. 어떻게 해결해야 할까?(npm run dev로 실행되긴함.)

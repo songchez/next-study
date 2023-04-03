@@ -26,10 +26,10 @@ export default function RootLayout({
     <html lang="ko" className={open_Sans.className}>
       <body>
         <div className="p-1 sm:p-5">
-          <header>
-            <div className="flex justify-between p-5 md:px-16">
+          <header className="flex justify-center w-full">
+            <div className="container flex justify-between items-center py-5 md:px-16 max-w-6xl">
               <Link href="/">
-                <h1 className="text-xl text-primary">
+                <h1 className="text-2xl text-primary font-serif bg-accent-focus ">
                   {metadata.title.default}
                 </h1>
               </Link>
