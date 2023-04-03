@@ -18,13 +18,14 @@ export default async function Slug({ params: { slug } }: Props) {
   }
   return (
     <div>
-      <Image
-        src={product.url}
-        alt={`imageof${product.name}`}
-        width={400}
-        height={400}
-        style={{ objectFit: "cover" }}
-      />
+      <div className="h-64 w-64 bg-cover">
+        <Image
+          src={product.url}
+          alt={`imageof${product.name}`}
+          width={400}
+          height={400}
+        />
+      </div>
       {product.name} 설명페이지
       <Link href="/" className="text-orange border m-10">
         홈가기

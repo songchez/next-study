@@ -40,7 +40,7 @@ export default function RootLayout({
                 <Link href="/about">About</Link>
               </nav>
               {/* 모바일 */}
-              <div className="dropdown sm:hidden">
+              <div className="dropdown dropdown-end sm:hidden">
                 <label
                   tabIndex={0}
                   className="btn m-1 bg-base text-primary hover:bg-primary/60 "
