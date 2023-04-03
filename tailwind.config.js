@@ -14,9 +14,6 @@ module.exports = {
       warning: "#FBBD23",
       error: "#F87272",
     },
-    animation: {
-      flicker: "flicker 3s linear infinite",
-    },
   },
   plugins: [require("@tailwindcss/typography"), require("daisyui")],
 };
