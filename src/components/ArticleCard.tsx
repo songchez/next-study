@@ -6,16 +6,13 @@ import CreatedAt from "./CreatedAt";
 import HeartIcon from "/public/icon_heart.svg";
 import { randomInt } from "crypto";
 import { Post } from "@/types/AboutPost";
-import { getAuthorData } from "@/app/api/blogData";
 import ImageBuilder from "./ImageBuilder";
+import { getAuthorData } from "@/app/api/blogData";
 
-export default function ArticleCard({
-  post,
-  author,
-}: {
-  post: Post;
-  author: any;
-}) {
+export default async function ArticleCard({ post }: { post: Post }) {
+  const author = await getAuthorData({
+    author_id: post.author._ref,
+  });
   const builder = imageUrlBuilder(client);
 
   function urlFor(source: any) {

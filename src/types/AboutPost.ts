@@ -8,3 +8,10 @@ export interface Post {
     _ref: string;
   };
 }
+
+// export interface Author {
+//   name: string;
+//   _id: string;
+//   _createdAt: any;
+//   image: string;
+// }
