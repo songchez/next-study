@@ -15,9 +15,5 @@ module.exports = {
       error: "#F87272",
     },
   },
-  plugins: [
-    require("@tailwindcss/typography"),
-    require("daisyui"),
-    require("tailwindcss-animatecss"),
-  ],
+  plugins: [require("@tailwindcss/typography"), require("daisyui")],
 };
