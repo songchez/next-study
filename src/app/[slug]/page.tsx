@@ -10,7 +10,7 @@ type Props = {
     slug: string;
   };
 };
-interface Post {
+export interface Post {
   title: string;
   _id: string;
   _createdAt: any;
