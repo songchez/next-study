@@ -1,6 +1,7 @@
 import Link from "next/link";
 import "./globals.css";
 import { Open_Sans } from "next/font/google";
+import Footer from "@/components/footer";
 
 const open_Sans = Open_Sans({
   subsets: ["latin"],
@@ -79,6 +80,7 @@ export default function RootLayout({
           </header>
           {children}
         </div>
+        <Footer></Footer>
       </body>
     </html>
   );
