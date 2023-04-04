@@ -1,7 +1,7 @@
 import Link from "next/link";
 import "./globals.css";
 import { Open_Sans } from "next/font/google";
-import Footer from "@/components/footer";
+import Footer from "@/components/Footer";
 
 const open_Sans = Open_Sans({
   subsets: ["latin"],

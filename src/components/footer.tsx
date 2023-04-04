@@ -5,7 +5,7 @@ import InstagramIcon from "/public/icon_insta.svg";
 
 export default function Footer() {
   return (
-    <div className="flex justify-center mt-40 mb-10 ">
+    <div className="flex justify-center mt-40 mb-10">
       <div>
         <div className="flex justify-center gap-2 p-3">
           <Link href="https://www.instagram.com/san.cheaz">
